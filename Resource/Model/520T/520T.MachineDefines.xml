@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<machine_definition>
+    <machine_data name="5AxOkuma_MU400VA" version="1.8" units="metric" controller="">
+        <view_transform initialvalue="1.00000000,0.00000000,0.00000000,0.00000000,0.00000000,1.00000000,0.00000000,0.00000000,0.00000000,0.00000000,1.00000000,0.00000000,0.00000000,0.00000000,0.00000000,1.00000000" />
+    </machine_data>
+
+    <geometry name="tool" alpha="0.00" reflectivity="0.10" objtype="tool" cuttr="0.82745099" cuttg="0.78039217" cuttb="0.67450982" noncuttr="0.50196081" noncuttg="0.50196081" noncuttb="0.50196081" arborr="0.39215687" arborg="0.39215687" arborb="0.39215687" holderr="0.36862746" holderg="0.57254905" holderb="0.69019610" />
+    <geometry name="stock" geo="stock.stl" clrr="0.75294119" clrg="0.75294119" clrb="0.75294119" alpha="0.00" reflectivity="0.40" reflectivityBitmapFileName="tablereflection.bmp" objtype="stock" />
+    
+    <geometry name="mh_base1" geo="base.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />
+    <geometry name="x" geo="x.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />
+    <geometry name="y" geo="y.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />
+    <geometry name="z" geo="z.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />
+    <geometry name="a1" geo="a1.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />
+    <geometry name="a2" geo="a2.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />
+    <geometry name="b" geo="b.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />
+    <geometry name="u" geo="u.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />
+</machine_definition>

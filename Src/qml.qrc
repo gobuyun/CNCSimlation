@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Script/main.qml</file>
+        <file>Script/Page/ControlPopup.qml</file>
+        <file>Script/PublicItem/CNCGeneralBtn.qml</file>
+    </qresource>
+</RCC>

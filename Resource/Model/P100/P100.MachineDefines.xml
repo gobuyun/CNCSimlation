@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<machine_definition>
+    <machine_data name="5AxOkuma_MU400VA" version="1.8" units="metric" controller="">
+        <view_transform initialvalue="1.00000000,0.00000000,0.00000000,0.00000000,0.00000000,1.00000000,0.00000000,0.00000000,0.00000000,0.00000000,1.00000000,0.00000000,0.00000000,0.00000000,0.00000000,1.00000000" />
+    </machine_data>
+
+    <axis id="Z" type="translation" x="0" y="0" z="1" minvalue="-381.000000" maxvalue="9999.000000" valuetype="cont" initial_value="0.000000">
+        <transform id="transform1" initialvalue="1.00000000,0.00000000,0.00000000,0,0.00000,1.00000000,0.00000000,0,0.00000000,0.00000000,1.00000000,665,0.00000000,0.00000000,0.00000000,1.00000000">
+            <geometry name="cbase" geo="CBase.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />
+
+            <axis id="R2" type="rotation" x="0.00000000" y="1.00000000" z="0.00000000" minvalue="-110.000000" maxvalue="9999.000000" valuetype="cont" initial_value="0.000000" rzx="-84.00000000" rzy="-1620.00000000" rzz="4657.00000000">
+                <transform id="transform2" initialvalue="1.00000000,0.00000000,0.00000000,-84,0.00000000,0.00000000,-1.00000000,-1620,0.00000000,1.00000000,0.00000000,4657,0.00000000,0.00000000,0.00000000,1.00000000">
+                    <geometry name="c" geo="C.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />            
+                    <transform id="transform21" initialvalue="1.00000000,0.00000000,0.00000000,0,0.00000000,1.00000000,0.00000000,0,0.00000000,0.00000000,1.00000000,-280,0.00000000,0.00000000,0.00000000,1.00000000">
+                        <geometry name="stock" geo="stock.stl" clrr="0.75294119" clrg="0.75294119" clrb="0.75294119" alpha="0.00" reflectivity="0.40" reflectivityBitmapFileName="tablereflection.bmp" objtype="stock" />
+                    </transform>
+                </transform>
+            </axis>
+        </transform>
+    </axis>
+
+    <axis id="X" type="translation" x="1" y="0" z="0" minvalue="-381.000000" maxvalue="9999.000000" valuetype="cont" initial_value="0.000000">
+        <transform id="transform3" initialvalue="1.00000000,0.00000000,0.00000000,57,0.00000000,1.00000000,0.00000000,0,0.00000000,0.00000000,1.00000000,-100,0.00000000,0.00000000,0.00000000,1.00000000">
+            <geometry name="up" geo="up.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />            
+
+            <axis id="Y" type="translation" x="0" y="1" z="0" minvalue="-381.000000" maxvalue="9999.000000" valuetype="cont" initial_value="0.000000">
+                <transform id="transform4" initialvalue="1.00000000,0.00000000,0.00000000,0,0.00000000,1.00000000,0.00000000,1040,0.00000000,0.00000000,1.00000000,0,0.00000000,0.00000000,0.00000000,1.00000000">
+                    <geometry name="move" geo="move.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />            
+
+                        <axis id="R1" type="rotation" x="0.00000000" y="-0.707107" z="0.707107" minvalue="-110.000000" maxvalue="9999.000000" valuetype="cont" initial_value="0.000000" rzx="458.00000000" rzy="-1407.0" rzz="4530.0">
+                            <transform id="transform5" initialvalue="0.96593,0.25882,0.00000000,458,0.18301,-0.68301,0.707107,-1407,0.18301,-0.68301,-0.707107,4530,0.00000000,0.00000000,0.00000000,1.00000000">
+                                <geometry name="b33" geo="B3-3.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />            
+
+                                <transform id="transform6" initialvalue="0.965925826289068,0.183012701892219,0.183012701892219,17.934,0,0.707106781186548,-0.707106781186548,-65.0532,-0.258819045102521,0.683012701892219,0.683012701892219,66.934,0.00000000,0.00000000,0.00000000,1.00000000">
+                                    <geometry name="tool" alpha="0.00" reflectivity="0.10" objtype="tool" cuttr="0.82745099" cuttg="0.78039217" cuttb="0.67450982" noncuttr="0.50196081" noncuttg="0.50196081" noncuttb="0.50196081" arborr="0.39215687" arborg="0.39215687" arborb="0.39215687" holderr="0.36862746" holderg="0.57254905" holderb="0.69019610" />
+                                </transform>
+                            </transform>
+                        </axis>
+                </transform>
+            </axis>
+        </transform>
+    </axis>
+
+    <geometry name="mh_base1" geo="bed.STL" clrr="0.50196075" clrg="0.50196075" clrb="0.50196075" alpha="0.00" reflectivity="0.00" reflectivityBitmapFileName="" objtype="geometry" />
+</machine_definition>
