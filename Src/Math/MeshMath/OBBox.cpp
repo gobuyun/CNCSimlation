@@ -133,7 +133,7 @@ void OBBox::Initialized()
     //std::cout << d<< std::endl;
     //求解特征向量
     Eigen::Matrix3d v = solver.pseudoEigenvectors();
-    //std::cout << v << std::endl;
+    std::cout <<"eigen v\n"<< v << std::endl;
 
     //获取box方向向量
     xAxis = KDL::Vector(v.col(0)(0),v.col(0)(1),v.col(0)(2));

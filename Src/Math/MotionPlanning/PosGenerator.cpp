@@ -605,7 +605,7 @@ bool CNC::PosGenerator::CheckOverSpeed(double &Cmd_,double Period_,bool IsAbsPos
     else
         overspeed =fabs(Cmd_) / Period_;
 
-    if (overspeed > (MData.Vel * 1.1))// && !IsOverSpeed )
+    if (overspeed > (MData.MaxVel * 1.1))// && !IsOverSpeed )
     {
         SetErrNum(ERROR_MSG_DANGER_SPEED, PARA_NONE);
         printf("[Cmd = %f Pos = %f Now = %f Limit = %f]",Cmd_,Theoretical.Pos,overspeed,MData.MaxVel);

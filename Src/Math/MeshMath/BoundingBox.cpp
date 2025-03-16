@@ -34,7 +34,7 @@ KDL::Vector BoundingBox::GetMin() const
 
 void BoundingBox::Transform(const KDL::Vector &offset, const KDL::Vector &rot, bool is_abs)
 {
-    KDL::Frame trans = KDL::Frame(KDL::Rotation::RPY(rot.x(),rot.y(),rot.z()),offset);
+    KDL::Frame trans = KDL::Frame(KDL::Rotation::RPY(rot.x()*KDL::deg2rad,rot.y()*KDL::deg2rad,rot.z()*KDL::deg2rad),offset);
     if(is_abs)
     {
         end_frame = trans;
@@ -44,22 +44,29 @@ void BoundingBox::Transform(const KDL::Vector &offset, const KDL::Vector &rot, b
     }
     if(type == AABB)
     {
-        if(KDL::Equal(rot,KDL::Vector(0,0,0)))
+        for (unsigned int i = 0; i < box_each_vertices.size(); i++)
         {
-            for (unsigned int i = 0; i < box_each_vertices.size(); i++)
-            {
-                box_each_vertices.at(i) = end_frame * base_box_each_vertices.at(i);
-            }
-            max_point = end_frame * base_max_point;
-            min_point = end_frame * base_min_point;
-        }else
-        {
-            for (unsigned int i = 0; i < raw_vertices.size(); i++)
-            {
-                raw_vertices.at(i) = end_frame * raw_vertices.at(i);
-            }
-            Initialized();
+            box_each_vertices.at(i) = end_frame * base_box_each_vertices.at(i);
         }
+        max_point = end_frame * base_max_point;
+        min_point = end_frame * base_min_point;
+
+        // if(KDL::Equal(rot,KDL::Vector(0,0,0)))
+        // {
+        //     for (unsigned int i = 0; i < box_each_vertices.size(); i++)
+        //     {
+        //         box_each_vertices.at(i) = end_frame * base_box_each_vertices.at(i);
+        //     }
+        //     max_point = end_frame * base_max_point;
+        //     min_point = end_frame * base_min_point;
+        // }else
+        // {
+        //     for (unsigned int i = 0; i < raw_vertices.size(); i++)
+        //     {
+        //         raw_vertices.at(i) = end_frame * raw_vertices.at(i);
+        //     }
+        //     Initialized();
+        // }
     }else
     {
         for (unsigned int i = 0; i < box_each_vertices.size(); i++)

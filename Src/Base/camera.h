@@ -75,8 +75,7 @@ public:
     void setDistance(double distance)
     {
         Distance = distance + 1500;
-//        Position = glm::vec3(Center.x, Center.y, Center.z+Distance);
-        Position = glm::vec3(0, 0, 1000);
+        Position = glm::vec3(Center.x, Center.y, Center.z+Distance);
     }
 
     // returns the view matrix calculated using Euler Angles and the LookAt Matrix
@@ -147,14 +146,9 @@ private:
     {
         // calculate the new Front vector
         glm::vec3 front;
-        auto it = glm::radians(Yaw);
-        auto it2 = glm::radians(Pitch);
-        auto it3 = cos(it);
-        auto it4 = cos(it2);
-
-        front.x = glm::cos(glm::radians(Yaw)) * glm::cos(glm::radians(Pitch));
-        front.y = glm::sin(glm::radians(Pitch));
-        front.z = glm::sin(glm::radians(Yaw)) * glm::cos(glm::radians(Pitch));
+        front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
+        front.y = sin(glm::radians(Pitch));
+        front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
         Front = glm::normalize(front);
         // also re-calculate the Right and Up vector
         Right = glm::normalize(glm::cross(Front, WorldUp));  // normalize the vectors, because their length gets closer to 0 the more you look up or down which results in slower movement.

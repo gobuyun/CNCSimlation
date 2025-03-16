@@ -8,10 +8,11 @@ using namespace MachineControl;
 AxisStepSport::AxisStepSport()
 {
     //建立轴测试
-    Axis.resize(5);
+    Axis.resize(3);
 
-    double jerk_xyz = 1,acc_xyz = 1,vel_xyz =1;
-    double jerk_abc = 1,acc_abc = 1,vel_abc =1;
+    double jerk_xyz = 0.5,acc_xyz = 0.02,vel_xyz =1;
+    double jerk_abc = 0.5,acc_abc = 0.02,vel_abc =1;
+    double max_vel = 99999;
     //正负限位
     double fs[5]={999900,999900,999900,999900,999900};
     double rs[5]={-999900,-999900,-999900,-999900,-999900};
@@ -22,14 +23,14 @@ AxisStepSport::AxisStepSport()
         if(i<3)
         {
             Axis.at(i)=std::make_shared<MotorControl>(pow(2,23), ABSOLUTE_ENCODER, LINEAR, true, 1, 1);
-            Axis.at(i)->SetMaxSpeedData(jerk_xyz, acc_xyz, acc_xyz, vel_xyz);
+            Axis.at(i)->SetMaxSpeedData(jerk_xyz, acc_xyz, acc_xyz, max_vel);
             Axis.at(i)->SetSpeedData(jerk_xyz, acc_xyz, acc_xyz, vel_xyz);
             Axis.at(i)->SetJogSpeedData(acc_xyz, vel_xyz);
         }
         else
         {
             Axis.at(i)=std::make_shared<MotorControl>(pow(2,23), ABSOLUTE_ENCODER, ROTATE, true, 1, 1);
-            Axis.at(i)->SetMaxSpeedData(jerk_abc, acc_abc, acc_abc, vel_abc);
+            Axis.at(i)->SetMaxSpeedData(jerk_abc, acc_abc, acc_abc, max_vel);
             Axis.at(i)->SetSpeedData(jerk_abc, acc_abc, acc_abc, vel_abc);
             Axis.at(i)->SetJogSpeedData(acc_abc, vel_abc);
         }
@@ -183,8 +184,12 @@ void AxisStepSport::entity()
             Axis.at(i)->MainControlLogic(CmdPeriodTime);
 
             //位置
-//            std::cout<<"pos="<<Axis.at(i)->PosGenera->GetPos()<<std::endl;
+
             auto pos = Axis.at(i)->PosGenera->GetPos();
+            if(fabs(pos)<1e-6)
+            {
+                pos =0;
+            }
             posVec.at(i) = pos;
 
             //速度

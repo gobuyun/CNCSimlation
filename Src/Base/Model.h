@@ -12,6 +12,7 @@
 #include "mesh.h"
 #include "shader.hpp"
 #include "Math/MeshMath/AABox.h"
+#include "Math/MeshMath/OBBox.h"
 
 #include <string>
 #include <fstream>
@@ -42,10 +43,6 @@ public:
         this->scaleRatio = scaleRatio;
         initializeOpenGLFunctions();
         loadModel(path);
-
-        // test add z-axis line
-        meshes.push_back(Mesh({{glm::vec3{0, 0, 0.f}}, {glm::vec3{0, 0, 500}}}, {0, 1}, {}, 1));
-        meshes.push_back(Mesh({{glm::vec3{0, 0, 0.f}}, {glm::vec3{500, 0, 0}}}, {0, 1}, {}, 1));
     }
 
     // draws the model, and thus all its meshes
@@ -169,8 +166,8 @@ private:
             vector.z = mesh->mVertices[i].z * scaleRatio;
             vertex.Position = vector;
             // update box
-            box.updateMaxCornerMinCornerIfNeed(vector);
-            m_kdlSet.push_back({vector.x, vector.y, vector.z});
+            box.updateMaxCornerMinCornerIfNeed(vertex.Position);
+            m_kdlSet.push_back({vertex.Position.x, vertex.Position.y, vertex.Position.z});
             // normals
             if (mesh->HasNormals())
             {

@@ -145,7 +145,7 @@ int RenderContent::draw()
     m_shader->setInt("intersects", toolintersects);
     m_toolModel->Draw(*m_shader);
     m_shader->setMat4("model", glm::mat4(1.0f));
-//    m_toolModel->DrawBox(*m_shader);
+    //m_toolModel->DrawBox(*m_shader);
 
     for (auto it = 0; it<m_axisModels.size(); ++it)
     {
